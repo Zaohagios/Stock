@@ -1,0 +1,3 @@
+== README
+
+Pulls stock quotes for the stocks you have listed and helps you figure out when to buy or sell to make a profit.
