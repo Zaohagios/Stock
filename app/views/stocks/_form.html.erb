@@ -1,0 +1,27 @@
+<%= if @stock.errors.any? %>
+<h2>Following Errors:</h2>
+<ul>
+    <% @stock.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+    <% end %>
+</ul>
+
+<%= form_to @stock do |f| %>
+<p>
+    <%= f.label :ticker_symbol %><br />
+    <%= f.text_field :ticker_symbol %>
+</p>
+<p>
+    <%= f.label :buy_price %><br />
+    <%= f.text_field :buy_price %>
+</p>
+<p>
+    <%= f.label :units %><br />
+    <%= f.text_field :units %>
+</p>
+<p>
+    <%= f.label :fee %><br />
+    <%= f.text_field :fee %>
+</p>
+<p><%= submit %></p>
+<% end %>
