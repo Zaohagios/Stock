@@ -8,6 +8,12 @@ class TickersController < ApplicationController
     end
     
     def update
+        if @ticker.update(ticker_params)
+            flash[:notice] = "Stocker Ticker was Updated."
+            redirect_to ticker_path(@ticker)
+        else
+            render 'edit'
+        end
     end
     
     def destroy

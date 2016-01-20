@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20160120085421) do
     t.decimal  "profit"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-  end
+  __END__
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

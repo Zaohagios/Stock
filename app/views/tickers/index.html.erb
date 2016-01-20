@@ -5,15 +5,19 @@
         <th>Units</th>
         <th>Fee</th>
         <th>Profit Wanted</th>
+        <th>Sell Price</th>
     </tr>
     
     <% @tickers.each do |t| %>
     <tr>
         <td><%= t.ticker_symbol %></td>
-        <td><%= t.buy_price %></td>
+        <td><%= number_to_currency(t.buy_price, :precision => 2) %></td>
         <td><%= t.units %></td>
-        <td><%= t.fee %></td>
-        <td><%= t.profit %></td>
+        <td><%= number_to_currency(t.fee, :precision => 2) %></td>
+        <td><%= number_to_currency(t.profit, :precision => 2) %></td>
+        <td>
+            <%= number_to_currency(((t.buy_price * t.units + t.fee + t.profit) / t.units), :precision => 2) %>
+        </td>
     </tr>
     <% end %>
 </table>
