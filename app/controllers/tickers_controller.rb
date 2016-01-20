@@ -40,11 +40,12 @@ class TickersController < ApplicationController
         end
     end
     
-    def ticker_params
-        params.require(:ticker).permit(:ticker_symbol, :buy_price, :units, :fee, :profit)
-    end
-    
-    def set_ticker
-        @ticker = Ticker.find(params[:id])
-    end
+    private
+        def ticker_params
+            params.require(:ticker).permit(:ticker_symbol, :buy_price, :units, :fee, :profit)
+        end
+        
+        def set_ticker
+            @ticker = Ticker.find(params[:id])
+        end
 end
