@@ -14,19 +14,19 @@
 </p>
 <p>
     <%= f.label :buy_price %><br />
-    <%= f.text_field :buy_price %>
+    <%= f.number_field :buy_price, :class => 'text_field', :step => 0.01 %>
 </p>
 <p>
     <%= f.label :units %><br />
-    <%= f.text_field :units %>
+    <%= f.number_field :units, :class => 'text_field', :step => 0.01 %>
 </p>
 <p>
     <%= f.label :fee %><br />
-    <%= f.text_field :fee %>
+    <%= f.number_field :fee, :class => 'text_field', :step => 0.01 %>
 </p>
 <p>
     <%= f.label :profit %><br />
-    <%= f.text_field :profit %>
+    <%= f.number_field :profit, :class => 'text_field', :step => 0.01 %>
 </p>
 <p>
     <%= f.submit %>
