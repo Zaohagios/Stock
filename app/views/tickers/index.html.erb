@@ -1,0 +1,19 @@
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>Ticker Symbol</th>
+        <th>Purchase Price</th>
+        <th>Units</th>
+        <th>Fee</th>
+        <th>Profit Wanted</th>
+    </tr>
+    
+    <% @tickers.each do |t| %>
+    <tr>
+        <td><%= t.ticker_symbol %></td>
+        <td><%= t.buy_price %></td>
+        <td><%= t.units %></td>
+        <td><%= t.fee %></td>
+        <td><%= t.profit %></td>
+    </tr>
+    <% end %>
+</table>
