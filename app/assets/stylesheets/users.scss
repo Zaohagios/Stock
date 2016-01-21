@@ -1,21 +1,16 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+footer {
+  margin-top: 42px;
+  border-top: 1px solid #eaeaea;
+}
+footer small {
+  float: left;
+}
 tr.clickable-row { 
     cursor: pointer; 
 }
-.vertical-center {
-  text-align: center;  /* align the inline(-block) elements horizontally */
-}
-
-.vertical-center:before {    /* create a full-height inline block pseudo=element */
-  content: ' ';
-  display: inline-block;
-  vertical-align: middle;  /* vertical alignment of the inline element */
-  height: 100%;
-}
-
-
-
-@import "bootstrap-sprockets";
-@import "bootstrap";
