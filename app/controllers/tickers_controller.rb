@@ -9,17 +9,18 @@ class TickersController < ApplicationController
     
     def update
         if @ticker.update(ticker_params)
-            flash[:notice] = "Stocker Ticker was Updated."
-            redirect_to ticker_path(@ticker)
+            flash[:notice] = @ticker.ticker_symbol + " was updated."
+            redirect_to tickers_path
         else
             render 'edit'
         end
     end
     
     def destroy
-        @ticker = @ticker.ticker_symbol
+        @ticker_symbol = @ticker.ticker_symbol
         @ticker.destroy
-        flash[:notice] = "Watcher for " + @ticker + " was deleted."
+        flash[:notice] = "Watcher for " + @ticker_symbol + " was deleted."
+        redirect_to tickers_path
     end
     
     def index

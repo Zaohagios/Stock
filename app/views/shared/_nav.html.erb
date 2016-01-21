@@ -14,11 +14,13 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><%= link_to 'New', new_ticker_path %></li>
-        <li><%= link_to 'List', tickers_path %></li>
+        <li><%= link_to 'New Ticker', new_ticker_path %></li>
+        <li><%= link_to 'List Tickers', tickers_path %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+        
         <li><%= link_to 'Register', new_user_path %></li>
+        <li><%= link_to "About", "#about-modal", :class => "btn", "data-toggle" => "modal" %></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

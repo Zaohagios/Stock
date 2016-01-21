@@ -1,3 +1,2 @@
-<h1>
-    New Ticker: <%= @ticker.ticker_symbol %> added to your list.
-</h1>
+<%= render 'form' %>
+<%= button_to 'Delete Ticker', ticker_path(@ticker), method: :delete, data: {confirm: "Are you sure you want to delete this ticker?"} %>

@@ -17,8 +17,12 @@
     <%= f.email_field :email %>
 </p>
 <p>
-    <%= f.label 'Password' %><br />
-    <%= f.password_field :password_digest %>
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+</p>
+<p>
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation %>
 </p>
 <p>
     <%= f.submit %>
