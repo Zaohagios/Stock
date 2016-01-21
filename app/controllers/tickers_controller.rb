@@ -8,6 +8,7 @@ class TickersController < ApplicationController
     end
     
     def update
+        @ticker.owner = current_user.id
         if @ticker.update(ticker_params)
             flash[:success] = @ticker.ticker_symbol + " was updated."
             redirect_to tickers_path
@@ -24,7 +25,7 @@ class TickersController < ApplicationController
     end
     
     def index
-        @tickers = Ticker.all
+        @tickers = Ticker.where(owner: current_user.id).find_each
     end
     
     def new
@@ -33,6 +34,7 @@ class TickersController < ApplicationController
     
     def create
         @ticker = Ticker.new(ticker_params)
+        @ticker.owner = current_user.id
         if @ticker.save
             flash[:success] = "Your Ticker Watcher was created"
             redirect_to ticker_path(@ticker)
@@ -43,7 +45,7 @@ class TickersController < ApplicationController
     
     private
         def ticker_params
-            params.require(:ticker).permit(:ticker_symbol, :buy_price, :units, :fee, :profit)
+            params.require(:ticker).permit(:ticker_symbol, :buy_price, :units, :fee, :profit, :owner)
         end
         
         def set_ticker
