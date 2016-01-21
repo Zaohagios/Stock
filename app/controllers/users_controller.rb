@@ -6,7 +6,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:notice] = "Your Account is registered!"
+      log_in @user
+      flash[:sucess] = "Your Account is registered!"
       redirect_to new_ticker_path
     else
       render 'new'

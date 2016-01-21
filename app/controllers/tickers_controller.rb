@@ -9,7 +9,7 @@ class TickersController < ApplicationController
     
     def update
         if @ticker.update(ticker_params)
-            flash[:notice] = @ticker.ticker_symbol + " was updated."
+            flash[:success] = @ticker.ticker_symbol + " was updated."
             redirect_to tickers_path
         else
             render 'edit'
@@ -19,7 +19,7 @@ class TickersController < ApplicationController
     def destroy
         @ticker_symbol = @ticker.ticker_symbol
         @ticker.destroy
-        flash[:notice] = "Watcher for " + @ticker_symbol + " was deleted."
+        flash[:warning] = "Watcher for " + @ticker_symbol + " was deleted."
         redirect_to tickers_path
     end
     
@@ -34,7 +34,7 @@ class TickersController < ApplicationController
     def create
         @ticker = Ticker.new(ticker_params)
         if @ticker.save
-            flash[:notice] = "Your Ticker Watcher was created"
+            flash[:success] = "Your Ticker Watcher was created"
             redirect_to ticker_path(@ticker)
         else
             render 'new'
