@@ -4,6 +4,17 @@
 tr.clickable-row { 
     cursor: pointer; 
 }
+.vertical-center {
+  text-align: center;  /* align the inline(-block) elements horizontally */
+}
+
+.vertical-center:before {    /* create a full-height inline block pseudo=element */
+  content: ' ';
+  display: inline-block;
+  vertical-align: middle;  /* vertical alignment of the inline element */
+  height: 100%;
+}
+
 
 
 @import "bootstrap-sprockets";
