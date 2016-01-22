@@ -49,7 +49,7 @@ class TickersController < ApplicationController
         end
         
         def set_ticker
-            @ticker = Ticker.find_by(params[:id])
+            @ticker = Ticker.find(params[:id])
             redirect_to new_ticker_path unless @ticker.owner == current_user.id
         end
 end
