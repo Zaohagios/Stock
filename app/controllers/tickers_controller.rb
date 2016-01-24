@@ -1,6 +1,5 @@
 class TickersController < ApplicationController
     before_action :set_ticker, only: [:show, :edit, :update, :destroy]
-    
     def show
     end
     

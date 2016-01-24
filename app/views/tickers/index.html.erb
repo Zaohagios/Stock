@@ -1,31 +1,25 @@
 <table class="table table-bordered table-hover">
     <tr>
-        <th>Ticker Symbol</th>
-        <th>Purchase Price</th>
-        <th>Units</th>
-        <th>Fee</th>
-        <th>Profit Wanted</th>
-        <th>Sell Price</th>
+        <th><a <%= Tool_Tip_HTML() %>"Stock Symbol.">Ticker Symbol</a></th>
+        <th><a <%= Tool_Tip_HTML() %>"How many units you own.">Units</a></th>
+        <th><a <%= Tool_Tip_HTML() %>"Broker fee to buy/sell">Fee</a></th>
+        <th><a <%= Tool_Tip_HTML() %>"The amount you want to earn after selling the stocks.">Profit Wanted</a></th>
+        <th><a <%= Tool_Tip_HTML() %>"Price you paid for the stock.">Purchase Price</a></th>
+        <th><a <%= Tool_Tip_HTML() %>"Price of stock as of the last sale on the exchange.">Current</a></th>
+        <th><a <%= Tool_Tip_HTML() %>"Price you need to sell at to get the profit you wanted.">Sell At</a></th>
+        <th><a <%= Tool_Tip_HTML() %>"How much the stock must go up to meat your goal.">Left To Goal</a></th>
     </tr>
     
     <% @tickers.each do |t| %>
-    <tr class='clickable-row' data-href='<%= ticker_path(t) %>'>
+    <tr class='clickable-row<%= Get_To_Goal(t) <= 0 ? " success" : " warning" %>' data-href='<%= ticker_path(t) %>'>
         <td><%= t.ticker_symbol %></td>
-        <td><%= number_to_currency(t.buy_price, :precision => 2) %></td>
         <td><%= t.units %></td>
-        <td><%= number_to_currency(t.fee, :precision => 2) %></td>
-        <td><%= number_to_currency(t.profit, :precision => 2) %></td>
-        <td>
-            <%= number_to_currency(((t.buy_price * t.units + t.fee + t.profit) / t.units), :precision => 2) %>
-        </td>
+        <td><%= number_to_currency(t.fee) %></td>
+        <td><%= number_to_currency(t.profit) %></td>
+        <td><%= number_to_currency(t.buy_price) %></td>
+        <td><%= number_to_currency(Get_Price(t.ticker_symbol)) %></td>
+        <td><%= number_to_currency(Get_Profit_Price(t)) %></td>
+        <td><%= number_to_currency(Get_To_Goal(t)) %></td>
     </tr>
     <% end %>
 </table>
-
-<script>
-    jQuery(document).ready(function($) {
-        $(".clickable-row").click(function() {
-            window.document.location = $(this).data("href");
-        });
-    });
-</script>
