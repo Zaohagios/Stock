@@ -1,35 +1,34 @@
 <% if @ticker.errors.any? %>
-<h2>Following Errors:</h2>
-<ul>
-    <% @ticker.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-    <% end %>
-</ul>
+    <h2>Following Errors:</h2>
+    <ul>
+        <% @ticker.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+    </ul>
 <% end %>
-
+    
 <%= form_for @ticker do |f| %>
-<p>
-    <%= f.label :ticker_symbol %><br />
-    <%= f.text_field :ticker_symbol %>
-</p>
-<p>
-    <%= f.label :buy_price %><br />
-    <%= f.number_field :buy_price, :class => 'text_field', :step => 0.01 %>
-</p>
-<p>
-    <%= f.label :units %><br />
-    <%= f.number_field :units, :class => 'text_field', :step => 0.01 %>
-</p>
-<p>
-    <%= f.label :fee %><br />
-    <%= f.number_field :fee, :class => 'text_field', :step => 0.01 %>
-</p>
-<p>
-    <%= f.label :profit %><br />
-    <%= f.number_field :profit, :class => 'text_field', :step => 0.01 %>
-</p>
-<p>
-    <%= f.submit %>
-</p>
-
+    <p>
+        <%= f.label :ticker_symbol %><br />
+        <%= f.text_field :ticker_symbol %>
+    </p>
+    <p>
+        <%= f.label :buy_price %><br />
+        <%= f.number_field :buy_price, :class => 'text_field', :step => 0.01 %>
+    </p>
+    <p>
+        <%= f.label :units %><br />
+        <%= f.number_field :units, :class => 'text_field', :step => 0.01 %>
+    </p>
+    <p>
+        <%= f.label :fee %><br />
+        <%= f.number_field :fee, :class => 'text_field', :step => 0.01 %>
+    </p>
+    <p>
+        <%= f.label :profit %><br />
+        <%= f.number_field :profit, :class => 'text_field', :step => 0.01 %>
+    </p>
+    <p>
+        <%= f.submit %>
+    </p>
 <% end %>

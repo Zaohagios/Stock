@@ -1,12 +1,6 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-
-.table {
-  border-color: black;
-}
-
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
@@ -25,16 +19,3 @@ a.header-tooltip {
   color: black;
   text-decoration: none;
 }
-
-tr.hold_it {
-  background-color: #ffcccc;
-}
-
-tr.sell_it {
-  background-color: #66ff66;
-}
-
-
-body {
-}
-
