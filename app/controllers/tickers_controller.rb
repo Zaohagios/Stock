@@ -36,7 +36,7 @@ class TickersController < ApplicationController
         @ticker.owner = current_user.id
         if @ticker.save
             flash[:success] = "Your Ticker Watcher was created"
-            redirect_to ticker_path(@ticker)
+            redirect_to tickers_path
         else
             render 'new'
         end
